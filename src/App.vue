@@ -1,29 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <mt-header fixed title="信息管理系统"></mt-header>
+        <router-view />
+        <mt-tabbar v-model="selected">
+            <mt-tab-item id="首页">
+                <img slot="icon" src="">
+                首页
+            </mt-tab-item>
+            <mt-tab-item id="会员">
+                <img slot="icon" src="">
+                会员
+            </mt-tab-item>
+            <mt-tab-item id="购物车">
+                <img slot="icon" src="">
+                购物车
+            </mt-tab-item>
+            <mt-tab-item id="查找">
+                <img slot="icon" src="">
+                查找
+            </mt-tab-item>
+        </mt-tabbar>
     </div>
-    <router-view/>
-  </div>
 </template>
-
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+    export default {
+        data() {
+            return {
+                selected: ''
+            }
+        },
     }
-  }
-}
+</script>
+<style lang="less">
+    #app {
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+    }
 </style>
